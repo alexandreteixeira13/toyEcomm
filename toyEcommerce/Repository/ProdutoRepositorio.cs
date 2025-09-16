@@ -2,7 +2,7 @@ using toyEcommerce.Models;
 using MySql.Data.MySqlClient;
 using Dapper;
     
-namespace toyEcommerce.Repositorio {
+namespace toyEcommerce.Repository {
     public class ProdutoRepositorio
     {
         //Criando a string de conexão

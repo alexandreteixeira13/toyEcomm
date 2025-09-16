@@ -1,8 +1,7 @@
 create database ToyEcommDb;
-
 use ToyEcommDb;
 
-create table produto(
+create table produtos(
 Id int primary key auto_increment,
 Nome varchar(50),
 Descricao varchar(100),
@@ -29,3 +28,5 @@ ProdutoId int,
 Quantidade int,
 PrecoUnitario decimal(10,2)
 );
+
+Select id, nome, descricao, preco, imageUrl, Estoque from produtos

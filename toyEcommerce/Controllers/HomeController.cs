@@ -1,21 +1,28 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using toyEcommerce.Models;
+using toyEcommerce.Repository;
 
 namespace toyEcommerce.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly ProdutoRepositorio _produtoRepositorio;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, ProdutoRepositorio produtoRepositorio)
     {
         _logger = logger;
-    }
+        _produtoRepositorio = produtoRepositorio;
 
-    public IActionResult Index()
+    }
+    
+    
+
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var produtos = await _produtoRepositorio.TodosProdutos();
+        return View(produtos);
     }
 
     public IActionResult Privacy()
